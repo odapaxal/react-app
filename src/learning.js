@@ -124,5 +124,5 @@ function UseState(){
 // render index.html
 const container = document.getElementById('test');
 const root = ReactDOM.createRoot(container);
-root.render(<Innlogging />); // hvis funksjonen brukes : root.render(<Hvem />)
+root.render(); // hvis funksjonen brukes : root.render(<Hvem />)
 

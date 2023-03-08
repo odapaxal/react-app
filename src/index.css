@@ -1,10 +1,331 @@
-body {
-  margin: 0;
-  font-family:'Times New Roman', Times, serif;
-  -webkit-font-smoothing: antialiased;
+body{
+  margin:0;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.pageContent{
+  margin:0 2vw 0 2vw;
+  text-align:center;
+  padding-top: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+a{
+  text-decoration: none;
+  color:black;
+  font-size: 20px;
+  margin: 0 1vw 0 1vw;
+  padding:2vw;
+}
+a:hover {
+  color: #dee0e4;
+  transition: 0.3s;
+}
+h1{
+  margin:20px 0 0 0;
+}
+button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width:140px;
+  height: 80px;
+  background: #40BFBE;
+  border: 1px solid #40BFBE;
+  border-radius: 10px;
+  font-weight:500;
+  font-size: 20px;
+}
+/* Sidebar */
+
+.sidebar {
+  background-color: #40bfbe;
+  height:100%;
+  width:100%;
+  position:fixed;
+  top:0;
+  right:0;
+  padding-top: 5vw;
+  display: none;
+  transition: translateX(35%);
+  filter:drop-shadow(0 0 2em #2f2f2f);
+}
+.sidebar p{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding:35px;
+  text-decoration: none;
+  color:black;
+  font-size: 20px;
+  margin: 0 1vw 0 1vw;
+  padding:2vw;
+}
+
+/* Topbar */
+
+.Topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color:#40bfbe;
+  position:fixed;
+  width:100%;
+  height:70px;
+  top:0vw;
+}
+.Topbar nav a.active {
+  background-color: #dee0e4;
+}
+input[type=checkbox]{
+  display: none;
+}
+.menyIkon{
+  display:none;
+  position:absolute;
+  user-select: none;
+}
+.menyIkon img {
+  height:38px;
+  padding:15px;
+}
+.exit{
+  position:fixed;
+  top:0;
+  right:0;
+  padding:40px;
+  font-size: 35px;
+}
+
+.StufLogo{
+  position:absolute;
+  top:0;
+  float:left;
+  height:100%;
+  width:auto;
+}
+/* Index page */
+.machine{
+  width:40%;
+  min-width:50px;
+  border-radius: 10px;
+  padding:3vw;
+  text-align: center;
+      
+}
+.machine:hover{
+  filter:drop-shadow(0 0 2em #40bfbe);
+}        
+
+/* Overview */
+.vask{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  height:250px;
+  width:100%;
+  max-width:500px;
+}
+.tabell{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width:100%;
+}
+.hvanårhvem{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 15px;
+  font-weight: bold;
+}
+.vaskeInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-right: 10px;
+}
+.bigButton{
+  font-size: 30px;
+  font-weight: 600;
+  width:auto;
+}
+
+/* Vaskevalg */
+.vaskevalg{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 15px; 
+}
+.vaskevalg button{
+  background-color: rgba(0, 0, 0, 0.1);
+  border:rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  width:100%;
+  height:50px;
+  font-weight: bold;
+  }
+  .vaskevalg button:hover{
+      background:rgba(112, 115, 120, 0.23);
+  }
+  .vaskevalg button:focus{
+      background: rgba(112, 115, 120, 0.72);
+  }
+.navigate{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 0px;
+  gap: 10px;
+}
+.tilbake{
+  background: rgba(63, 191, 190, 0.44);
+  border:rgba(63, 191, 190, 0.44);
+  border-radius: 20px;
+  font-weight: bold;
+  width:100px;
+  height:50px;
+  padding: 10px;
+}
+.ferdig{
+  border-radius: 20px;
+  font-weight: bold;
+  width:100px;
+  height:50px;
+  padding: 10px;
+}
+  .ferdig:hover{
+      transition:0.5s;
+      border:rgba(63, 191, 190, 0.44);
+      box-shadow: 2px 2px 2px 2px rgba(63, 191, 190, 0.44);
+  }
+
+
+/* Bottom bar*/
+
+.bottom{
+  background-color:#40bfbe;
+  position: relative;
+  width:100%;
+  height:auto; 
+  max-height: 200px;
+  bottom:0;
+  margin-top:7vw;
+  font-size:12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.index{
+  position:fixed;
+}
+.bottom a{
+  font-size: 12px;
+  padding:10px;
+}
+.bottom p{
+  padding-left:20px;
+}
+.bottom div{
+  max-height: 150px;
+  padding:15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+#Instagram{
+  float:right;
+  width: 15vw;
+  max-width: 60px;
+  margin-right:5vw;
+  margin-top:2vw;
+}
+
+/* Login */
+
+.login, .register {
+  width:400px;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+  margin: auto;
+  margin-top: 0;
+  align-items: center;
+  box-sizing:border-box;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
-#test{
-  background-color: magenta;
+
+.login .links, .register .links{
+  display:flex;
+  padding:30px 15px;
+  justify-content: center;
+  font-size: large;
+}
+.login .links a, .register .links a{
+  text-decoration: none;
+  padding:0 20px 20px 20px;
+  font-weight: bold;
+  color:#40bfbe;
+}
+.login .links a.active, .register .links a.active{
+  border-bottom: 3px solid #40bfbe;
+}
+.login form, .register form{
+  display:flex;
+  flex-wrap: wrap;
+  align-items:center;
+  flex-direction: column;
+}
+.login form input, .register form input{
+  width: 310px;
+  height: 50px;
+  border: 1px solid #dee0e4;
+  margin-bottom: 20px;
+  padding: 0 15px;
+}
+.login form input[type="submit"]:hover, .register form input[type="submit"]:hover {
+  background-color: #40bfbe;
+  transition: background-color 0.2s;
+}
+
+
+@media screen and (max-width:768px) {
+  .Topbar nav {
+      display:none;
+  }
+  input[type=checkbox]:checked ~ .sidebar{
+      display: block;
+      transition:2s;
+  }
+  input[type=checkbox]:checked ~ .bottom{
+      display: none;
+      transition:2s;
+  }
+  .menyIkon{
+      display:contents;
+  }
+  .bottom {
+      position:fixed;
+  }
 }

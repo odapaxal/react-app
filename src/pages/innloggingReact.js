@@ -1,4 +1,4 @@
-const Innlogging = () => {
+/*const Innlogging = () => {
     return (
         <>
     <div className="pageContent">
@@ -15,7 +15,8 @@ const Innlogging = () => {
             <input type="submit" value="Logg inn"/>
         </form>
     </div> 
-    </> )
+    </> );
     };
 
     export default Innlogging;
+    */
