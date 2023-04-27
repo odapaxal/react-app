@@ -13,14 +13,17 @@ body{
   gap: 20px;
   align-items: center;
 }
-a{
+.links{
   text-decoration: none;
   color:black;
   font-size: 20px;
   margin: 0 1vw 0 1vw;
   padding:2vw;
 }
-a:hover {
+#smallLinks {
+  font-size:5px;
+}
+.links:hover {
   color: #dee0e4;
   transition: 0.3s;
 }
@@ -55,7 +58,7 @@ button{
   transition: translateX(35%);
   filter:drop-shadow(0 0 2em #2f2f2f);
 }
-.sidebar p{
+.sidebar .links{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -81,7 +84,11 @@ button{
   height:70px;
   top:0vw;
 }
-.Topbar nav a.active {
+.Topbar nav{
+  display:flex;
+  flex-direction: row;
+}
+.Topbar nav .links .active {
   background-color: #dee0e4;
 }
 input[type=checkbox]{
@@ -125,17 +132,20 @@ input[type=checkbox]{
 }        
 
 /* Overview */
-.vask{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.vaskOgKnapp{
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  padding-bottom: 15px;
   font-size: 20px;
-  height:250px;
   width:100%;
   max-width:500px;
+  padding-bottom: 15px;
+  font-size: 20px;
+
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
 }
 .tabell{
   display:flex;
@@ -156,13 +166,14 @@ input[type=checkbox]{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
-  padding-right: 10px;
+  align-items: flex-end;
+  padding-right: 15px;
 }
 .bigButton{
   font-size: 30px;
   font-weight: 600;
   width:auto;
+  text-decoration: none;
 }
 
 /* Vaskevalg */
@@ -175,18 +186,22 @@ input[type=checkbox]{
   padding: 10px;
   gap: 15px; 
 }
-.vaskevalg button{
+.vaskevalg .valg{
   background-color: rgba(0, 0, 0, 0.1);
   border:rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   width:100%;
   height:50px;
   font-weight: bold;
+  font-size: 20px;
   }
-  .vaskevalg button:hover{
+  .vaskevalg input{
+    visibility: hidden;
+  }
+  .vaskevalg .valg:hover{
       background:rgba(112, 115, 120, 0.23);
   }
-  .vaskevalg button:focus{
+  .vaskevalg input:checked + .valg:after{
       background: rgba(112, 115, 120, 0.72);
   }
 .navigate{
@@ -235,20 +250,17 @@ input[type=checkbox]{
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+  padding-top:10px;
 }
 .index{
   position:fixed;
 }
-.bottom a{
-  font-size: 12px;
-  padding:10px;
-}
 .bottom p{
   padding-left:20px;
+  padding-bottom: 5px;
 }
 .bottom div{
-  max-height: 150px;
-  padding:15px;
+  padding:10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -278,17 +290,13 @@ input[type=checkbox]{
 
 .login .links, .register .links{
   display:flex;
-  padding:30px 15px;
-  justify-content: center;
-  font-size: large;
-}
-.login .links a, .register .links a{
   text-decoration: none;
-  padding:0 20px 20px 20px;
+  padding:20px 20px 20px 20px;
   font-weight: bold;
+  font-size: large;
   color:#40bfbe;
 }
-.login .links a.active, .register .links a.active{
+.login .links .active, .register .links .active{
   border-bottom: 3px solid #40bfbe;
 }
 .login form, .register form{
@@ -324,8 +332,5 @@ input[type=checkbox]{
   }
   .menyIkon{
       display:contents;
-  }
-  .bottom {
-      position:fixed;
   }
 }

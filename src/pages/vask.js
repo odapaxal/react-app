@@ -1,36 +1,42 @@
 import {Datatest} from './datatest.js';
+import {Link} from 'react-router-dom';
 
-export default function Data(){
+export default function Vaskeliste(){
+    
     return (
-        <div className="vask">
-            <div className="tabell">
-                {Datatest.map((data,key) => {
-                    return(
-                        <div key={key}> 
+        <>
+        <h1>Vaskeliste</h1>
+            {Datatest.map((data) => {
+                return(
+                    <div className='vaskOgKnapp'>
+                        <div className="tabell">
+                        <div className="hvanårhvem">
+                        <p className="hva" id="hva">Hva</p>
+                        <p className="når">Når</p>
+                        <p className="hvem">Hvem</p>
+                    </div>
                         <Vask 
-                            key={key}
+                            key={data.id}
                             name={data.name}
                             bestillingtid={data.bestillingtid}
                             typeVask = {data.typeVask}
                         />
                         </div>
-                    );
-                })}
-                </div>
-            <div className="vaskeInfo">
-                    <p className="hva" id="hva">Hvitt 60&#8451</p>
-                    <p className="når">Onsdag 1. februar 16.30</p>
-                    <p className="hvem">Oda</p>
-                </div>
-            <button className="button" onclick="">Meld deg på</button>
-	    </div>
-    );
-}
+                    <button className="button">Meld deg på</button>
+                    </div>
+                );
+            })}
+            <h1>Fant du ingen vask som passet?</h1>
+            <Link to="/vaskevalg">
+	        <button className="bigButton links">Opprett ny vask</button>
+            </Link>
+        </>
+    );}
 
 function Vask({name,bestillingtid,typeVask}) {
     if(!name) return <div />;
     return (
-			<div className="hvanårhvem">
+			<div className="vaskeInfo">
 				<p>{typeVask}</p>
 				<p>{bestillingtid}</p>
 				<p>{name}</p>
