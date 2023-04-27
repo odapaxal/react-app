@@ -11,7 +11,7 @@ export default function Home() {
             <Link to="vaskeliste">
                 <img className="machine" src={require("../images/waschma.jpg")} alt="vaskemaskin"/>
             </Link>
-            <button type="button">Spill hangman</button>
+            <button className="button">Spill hangman</button>
         </>
     );
 }

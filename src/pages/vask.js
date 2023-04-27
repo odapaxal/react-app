@@ -28,7 +28,7 @@ export default function Vaskeliste(){
             })}
             <h1>Fant du ingen vask som passet?</h1>
             <Link to="/vaskevalg">
-	        <button className="bigButton links">Opprett ny vask</button>
+	        <button className="bigButton links button">Opprett ny vask</button>
             </Link>
         </>
     );}

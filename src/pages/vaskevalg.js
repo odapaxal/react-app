@@ -1,13 +1,17 @@
 import {Link} from "react-router-dom";
 import { useState } from "react";
 
-export default function Vaskevalg() {
-    const [typeVask,setTypeVask] = useState("");
+export default function Vaskevalg({typeVask,setTypeVask}) {
     
     const HandleTypevaskChange = (e) => {
         setTypeVask(e.target.value);
         console.log('clicked  ==>', typeVask)
       }
+
+    const HandleSubmit = () => {
+        console.log("Du har valgt:",typeVask)
+
+    }
 
     return(
         <>
@@ -35,12 +39,10 @@ export default function Vaskevalg() {
                     typeVask="Ull/Silke 30°"
                     onChange={HandleTypevaskChange}
                 />
-
-                <button>Tilpass</button>
             </div>
             <div className="navigate">
-                <button className="tilbake"><Link to="/vaskeliste">Tilbake</Link></button>
-                <button className="ferdig"><Link to="/tidvalg">Ferdig</Link></button>
+                <button className="tilbake button"><Link to="/vaskeliste" >Tilbake</Link></button>
+                <button className="ferdig button"><Link to="/tidvalg" onClick={HandleSubmit}>Ferdig</Link></button>
             </div>
         </>
     )
@@ -48,9 +50,9 @@ export default function Vaskevalg() {
 
 const RadioButton = ({typeVask,onChange}) =>{
     return (
-        <label className="valg">
-            <input type="radio" id={typeVask}  value={typeVask} onChange={onChange} />
-            {typeVask}
-        </label>
+        <>
+        <input type="radio" className="valgInput"id={typeVask}  value={typeVask} onChange={onChange} name="Vaskevalg" />
+        <label className="valg" htmlFor={typeVask}>{typeVask}</label>
+        </>
     )
 }

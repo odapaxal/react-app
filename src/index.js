@@ -14,7 +14,7 @@ import './index.css';
 
  
 export default function App() {
-    const [bestillingtid,setBestillingtid] = useState(null);
+    const [typeVask,setTypeVask] = useState("");
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
         <BrowserRouter>
@@ -24,8 +24,8 @@ export default function App() {
                     <Route path="om oss" element={<Hei />} />
                     <Route path="innlogging" element={<Innlogging />} />
                     <Route path="vaskeliste" element={<Vaskeliste />} /> 
-                    <Route path="vaskevalg" element={<Vaskevalg />}/>
-                    <Route path="tidvalg" element={<ResponsiveDateTimePickers />} />
+                    <Route path="vaskevalg" element={<Vaskevalg typeVask={typeVask} setTypeVask={setTypeVask}/>}/>
+                    <Route path="tidvalg" element={<ResponsiveDateTimePickers typeVask={typeVask}/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

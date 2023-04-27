@@ -42,7 +42,7 @@ export default function Innlogging(){
 
       const SubmitHandler = (e) => {
         e.preventDefault();
-        registerRequest();
+        console.log({username},{password});
       }
 
     return (

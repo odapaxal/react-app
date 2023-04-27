@@ -28,7 +28,7 @@ import dayjs from 'dayjs';
 import axios from 'axios';
 import { StaticDateTimePicker } from '@mui/x-date-pickers/StaticDateTimePicker';
 
-export default function ResponsiveDateTimePickers() {
+export default function ResponsiveDateTimePickers({typeVask}) {
     const [tid,setTid] = useState(null);
     const [mailSent, setmailSent] = useState(false);
     const [error, setError] = useState(null);
@@ -51,6 +51,10 @@ export default function ResponsiveDateTimePickers() {
           })
           .catch(error => setError( error.message ));
       };
+
+  const HandleSubmitTest = () =>{
+    console.log({tid},{typeVask});
+  }
     
    
   return (
@@ -58,10 +62,15 @@ export default function ResponsiveDateTimePickers() {
         <StaticDateTimePicker
             value={tid}
             onChange={(nyTid => setTid(nyTid))}
-            onAccept={HandleFormSubmit}
-            disablePast="true"
+            onAccept={HandleSubmitTest}
+            disablePast={true}
+            slotProps={{
+              actionBar: {
+                actions: ['accept'],
+              }
+            }}
         />
-        <button><Link to="/vaskevalg">Tilbake</Link></button>
+        <button className="tilbake button"><Link to="/vaskevalg">Tilbake</Link></button>
     </>
   );
 }
