@@ -43,3 +43,4 @@ function Vask({name,bestillingtid,typeVask}) {
 			</div>
     );
 }
+

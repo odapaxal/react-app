@@ -64,6 +64,10 @@ export default function ResponsiveDateTimePickers({typeVask}) {
             onChange={(nyTid => setTid(nyTid))}
             onAccept={HandleSubmitTest}
             disablePast={true}
+            ampm={false}
+            minutesStep={15}
+            disableIgnoringDatePartForTimeValidation={true}
+            minTime="6"
             slotProps={{
               actionBar: {
                 actions: ['accept'],

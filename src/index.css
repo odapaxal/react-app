@@ -54,14 +54,14 @@ a{
 .sidebar {
   background-color: #40bfbe;
   height:100%;
-  width:100%;
+  width:50%;
   position:fixed;
   top:0;
   right:0;
   padding-top: 5vw;
-  display: none;
-  transition: translateX(35%);
+  transition: 0.4s ease-in;
   filter:drop-shadow(0 0 2em #2f2f2f);
+  z-index:3;
 }
 .sidebar .links{
   display: flex;
@@ -74,6 +74,26 @@ a{
   font-size: 20px;
   margin: 0 1vw 0 1vw;
   padding:2vw;
+}
+.sidebarClosed{
+  width:0;
+}
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 400ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 400ms;
 }
 
 /* Topbar */
@@ -245,6 +265,7 @@ input[type=checkbox]{
 /* Bottom bar*/
 
 .bottom{
+  z-index: 2;
   background-color:#40bfbe;
   position: relative;
   width:100%;
@@ -328,14 +349,6 @@ input[type=checkbox]{
 @media screen and (max-width:768px) {
   .Topbar nav {
       display:none;
-  }
-  input[type=checkbox]:checked ~ .sidebar{
-      display: block;
-      transition:2s;
-  }
-  input[type=checkbox]:checked ~ .bottom{
-      display: none;
-      transition:2s;
   }
   .menyIkon{
       display:contents;

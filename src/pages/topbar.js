@@ -1,9 +1,24 @@
 import {Link} from "react-router-dom";
 import {CSSTransition} from 'react-transition-group';
-import { useState } from "react";
+import { useState,useEffect,useRef } from "react";
+import cx from 'classnames';
 
 export default function Topbar(){
-	const [isOpen,setIsOpen] = useState(true);
+	const [isOpen,setIsOpen] = useState(false);
+	const sidebarRef = useRef(null);
+
+	useEffect(() => {
+		document.addEventListener('mousedown',handleClickOutside)
+		return() => {
+			document.removeEventListener('mousedown',handleClickOutside)
+		};
+	}, []);
+
+	const handleClickOutside= (event) =>{
+		if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+			setIsOpen(false);
+		  }
+	}
 
     return (
         <>
@@ -17,13 +32,11 @@ export default function Topbar(){
 			<Link className="links" to="om oss">Om oss</Link>
 			<Link className="links" to="innlogging">Logg inn</Link>
 		</nav>
-			<input type="checkbox" id="checkboxToggle"/>
-			<label htmlFor="checkboxToggle" className="menyIkon"><img src={require("../images/meny_ikon.png")}/></label>
-		<div className="sidebar">
-			<input type="checkbox" id="checkboxToggle"/>
-			<label htmlFor="checkboxToggle" className="exit">X</label>
+			<button className="menyIkon" onClick={() => setIsOpen(!isOpen)}><img src={require("../images/meny_ikon.png")}/></button>
+		<div className= {cx("sidebar", {"sidebarClosed": !isOpen })} ref={sidebarRef}>
+		
 			<Link to="vaskeliste" className="links">Vaskeliste</Link>
-			<Link className="links" to="vaskevalg">Opprett ny vask</Link>
+			<Link to="vaskevalg" className="links" >Opprett ny vask</Link>
 			<Link to="om oss" className="links">Om oss</Link>
 			<Link to="innlogging" className="links">Logg inn</Link>
 		</div>
@@ -31,3 +44,10 @@ export default function Topbar(){
     </>
     )
 };
+/*<CSSTransition 
+				in={isOpen}
+				timeout={200}
+				unmountOnExit
+				classNames={"fade"}
+				/> 
+*/
